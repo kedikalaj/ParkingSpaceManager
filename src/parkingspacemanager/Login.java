@@ -57,6 +57,8 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/parkingspacemanager/img/car1.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
+        ProgressBar.setPreferredSize(new java.awt.Dimension(146, 6));
+
         Loadingtxt.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         Loadingtxt.setForeground(new java.awt.Color(102, 102, 102));
         Loadingtxt.setText("Loading...");
@@ -141,17 +143,14 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGap(294, 294, 294))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPasswordField1)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
                         .addGap(238, 238, 238))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(253, 253, 253))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(288, 288, 288))))
+                .addContainerGap(290, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(288, 288, 288))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,6 +175,8 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
+ 
+            
             Connection conn = null;
             conn = DBconnector.connect();  
                 
@@ -222,7 +223,7 @@ public class Login extends javax.swing.JFrame {
 
         try{
         for(int i=0; i<100; i++){
-            Thread.sleep(20);
+            Thread.sleep(50);
              login.jPasswordField1.setVisible(false);
              login.jTextField1.setVisible(false);
              login.jButton1.setVisible(false);
