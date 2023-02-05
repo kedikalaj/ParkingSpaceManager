@@ -5,9 +5,13 @@
 package parkingspacemanager;
 
 import java.awt.Color;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;    
+import javax.swing.JOptionPane;
 
 
 /**
@@ -64,17 +68,18 @@ public class Index extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabelP = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 0));
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
         jPanel3.setBackground(new java.awt.Color(0, 255, 0));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -326,7 +331,7 @@ public class Index extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(162, 162, 162)
                 .addComponent(jLabel9)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,14 +388,6 @@ public class Index extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Hours");
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel16.setText("Time of entry:");
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel17.setText("        -");
-
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/parkingspacemanager/img/t1111.png"))); // NOI18N
         jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -405,6 +402,18 @@ public class Index extends javax.swing.JFrame {
             }
         });
 
+        jLabel20.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("Payment");
+
+        jLabelP.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        jLabelP.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelP.setText("-");
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel17.setText("jLabel16");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -412,6 +421,14 @@ public class Index extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(69, 69, 69)
+                                .addComponent(jLabel10))
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
@@ -419,24 +436,18 @@ public class Index extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(jLabel11)
                             .addComponent(jLabel15)
-                            .addComponent(jLabel16))
+                            .addComponent(jLabel20))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelP)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTextField2)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, 102, Short.MAX_VALUE)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jTextField3)
-                                .addComponent(jTextField5))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(jLabel10))
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jTextField5))
+                            .addComponent(jLabel17))))
+                .addGap(11, 11, 11)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -467,9 +478,11 @@ public class Index extends javax.swing.JFrame {
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabelP))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -507,6 +520,7 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText("");
             jTextField5.setText("");
             jLabel17.setText("-");
+            jLabelP.setText("-");
         }else if(one==1){
             
             try{
@@ -532,11 +546,31 @@ public class Index extends javax.swing.JFrame {
        
               g = rs.getString("Time");}
                 
+      
             jTextField2.setText("1");
             jTextField1.setText(c);
             jTextField3.setText(d);
             jTextField5.setText(e);
             jLabel17.setText(g);
+            int hours = Integer.parseInt(e); 
+            
+            switch(b){
+                case "Sedan":
+                    Sedan car1 = new Sedan(b,c,0,hours,d);
+                    String payment1 = Integer. toString(car1.Payment(hours));
+                    jLabelP.setText(payment1);
+                    break;
+                case "Micro":
+                    Micro car2 = new Micro(b,c,0,hours,d);
+                    String payment2 = Integer. toString(car2.Payment(hours));
+                    jLabelP.setText(payment2);
+                    break;
+                case "SUV":
+                    SUV car3 = new SUV(b,c,0,hours,d);
+                    String payment3 = Integer. toString(car3.Payment(hours));
+                    jLabelP.setText(payment3);
+                        break;
+            }
             
             }catch(Exception e){
                 System.out.println(e);}
@@ -553,6 +587,7 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText("");
             jTextField5.setText("");
             jLabel17.setText("-");
+            jLabelP.setText("-");
         }else if(two==1){
             
             try{
@@ -583,7 +618,25 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText(d);
             jTextField5.setText(e);
             jLabel17.setText(g);
+                        int hours = Integer.parseInt(e); 
             
+            switch(b){
+                case "Sedan":
+                    Sedan car1 = new Sedan(b,c,0,hours,d);
+                    String payment1 = Integer. toString(car1.Payment(hours));
+                    jLabelP.setText(payment1);
+                    break;
+                case "Micro":
+                    Micro car2 = new Micro(b,c,0,hours,d);
+                    String payment2 = Integer. toString(car2.Payment(hours));
+                    jLabelP.setText(payment2);
+                    break;
+                case "SUV":
+                    SUV car3 = new SUV(b,c,0,hours,d);
+                    String payment3 = Integer. toString(car3.Payment(hours));
+                    jLabelP.setText(payment3);
+                        break;
+            }
             }catch(Exception e){
                 System.out.println(e);}
        
@@ -599,6 +652,7 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText("");
             jTextField5.setText("");
             jLabel17.setText("-");
+            jLabelP.setText("-");
         }else if(three==1){
             
             try{
@@ -629,7 +683,25 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText(d);
             jTextField5.setText(e);
             jLabel17.setText(g);
+                        int hours = Integer.parseInt(e); 
             
+            switch(b){
+                case "Sedan":
+                    Sedan car1 = new Sedan(b,c,0,hours,d);
+                    String payment1 = Integer. toString(car1.Payment(hours));
+                    jLabelP.setText(payment1);
+                    break;
+                case "Micro":
+                    Micro car2 = new Micro(b,c,0,hours,d);
+                    String payment2 = Integer. toString(car2.Payment(hours));
+                    jLabelP.setText(payment2);
+                    break;
+                case "SUV":
+                    SUV car3 = new SUV(b,c,0,hours,d);
+                    String payment3 = Integer. toString(car3.Payment(hours));
+                    jLabelP.setText(payment3);
+                        break;
+            }
             }catch(Exception e){
                 System.out.println(e);}
        
@@ -644,6 +716,7 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText("");
             jTextField5.setText("");
             jLabel17.setText("-");
+            jLabelP.setText("-");
         }else if(four==1){
             
             try{
@@ -674,7 +747,25 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText(d);
             jTextField5.setText(e);
             jLabel17.setText(g);
+                        int hours = Integer.parseInt(e); 
             
+            switch(b){
+                case "Sedan":
+                    Sedan car1 = new Sedan(b,c,0,hours,d);
+                    String payment1 = Integer. toString(car1.Payment(hours));
+                    jLabelP.setText(payment1);
+                    break;
+                case "Micro":
+                    Micro car2 = new Micro(b,c,0,hours,d);
+                    String payment2 = Integer. toString(car2.Payment(hours));
+                    jLabelP.setText(payment2);
+                    break;
+                case "SUV":
+                    SUV car3 = new SUV(b,c,0,hours,d);
+                    String payment3 = Integer. toString(car3.Payment(hours));
+                    jLabelP.setText(payment3);
+                        break;
+            }
             }catch(Exception e){
                 System.out.println(e);}
        
@@ -689,6 +780,7 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText("");
             jTextField5.setText("");
             jLabel17.setText("-");
+            jLabelP.setText("-");
         }else if(five==1){
             
             try{
@@ -719,6 +811,25 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText(d);
             jTextField5.setText(e);
             jLabel17.setText(g);
+                        int hours = Integer.parseInt(e); 
+            
+            switch(b){
+                case "Sedan":
+                    Sedan car1 = new Sedan(b,c,0,hours,d);
+                    String payment1 = Integer. toString(car1.Payment(hours));
+                    jLabelP.setText(payment1);
+                    break;
+                case "Micro":
+                    Micro car2 = new Micro(b,c,0,hours,d);
+                    String payment2 = Integer. toString(car2.Payment(hours));
+                    jLabelP.setText(payment2);
+                    break;
+                case "SUV":
+                    SUV car3 = new SUV(b,c,0,hours,d);
+                    String payment3 = Integer. toString(car3.Payment(hours));
+                    jLabelP.setText(payment3);
+                        break;
+            }
             }catch(Exception e){
                 System.out.println(e);}
        
@@ -733,6 +844,7 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText("");
             jTextField5.setText("");
             jLabel17.setText("-");
+            jLabelP.setText("-");
         }else if(six==1){
             
             try{
@@ -763,7 +875,25 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText(d);
             jTextField5.setText(e);
             jLabel17.setText(g);
+                        int hours = Integer.parseInt(e); 
             
+            switch(b){
+                case "Sedan":
+                    Sedan car1 = new Sedan(b,c,0,hours,d);
+                    String payment1 = Integer. toString(car1.Payment(hours));
+                    jLabelP.setText(payment1);
+                    break;
+                case "Micro":
+                    Micro car2 = new Micro(b,c,0,hours,d);
+                    String payment2 = Integer. toString(car2.Payment(hours));
+                    jLabelP.setText(payment2);
+                    break;
+                case "SUV":
+                    SUV car3 = new SUV(b,c,0,hours,d);
+                    String payment3 = Integer. toString(car3.Payment(hours));
+                    jLabelP.setText(payment3);
+                        break;
+            }
             }catch(Exception e){
                 System.out.println(e);}
        
@@ -778,6 +908,7 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText("");
             jTextField5.setText("");
             jLabel17.setText("-");
+            jLabelP.setText("-");
         }else if(seven==1){
             
             try{
@@ -808,7 +939,25 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText(d);
             jTextField5.setText(e);
             jLabel17.setText(g);
+                        int hours = Integer.parseInt(e); 
             
+            switch(b){
+                case "Sedan":
+                    Sedan car1 = new Sedan(b,c,0,hours,d);
+                    String payment1 = Integer. toString(car1.Payment(hours));
+                    jLabelP.setText(payment1);
+                    break;
+                case "Micro":
+                    Micro car2 = new Micro(b,c,0,hours,d);
+                    String payment2 = Integer. toString(car2.Payment(hours));
+                    jLabelP.setText(payment2);
+                    break;
+                case "SUV":
+                    SUV car3 = new SUV(b,c,0,hours,d);
+                    String payment3 = Integer. toString(car3.Payment(hours));
+                    jLabelP.setText(payment3);
+                        break;
+            }
             }catch(Exception e){
                 System.out.println(e);}
        
@@ -823,6 +972,7 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText("");
             jTextField5.setText("");
             jLabel17.setText("-");
+            jLabelP.setText("-");
         }else if(eight==1){
             
             try{
@@ -853,7 +1003,25 @@ public class Index extends javax.swing.JFrame {
             jTextField3.setText(d);
             jTextField5.setText(e);
             jLabel17.setText(g);
+                        int hours = Integer.parseInt(e); 
             
+            switch(b){
+                case "Sedan":
+                    Sedan car1 = new Sedan(b,c,0,hours,d);
+                    String payment1 = Integer. toString(car1.Payment(hours));
+                    jLabelP.setText(payment1);
+                    break;
+                case "Micro":
+                    Micro car2 = new Micro(b,c,0,hours,d);
+                    String payment2 = Integer. toString(car2.Payment(hours));
+                    jLabelP.setText(payment2);
+                    break;
+                case "SUV":
+                    SUV car3 = new SUV(b,c,0,hours,d);
+                    String payment3 = Integer. toString(car3.Payment(hours));
+                    jLabelP.setText(payment3);
+                        break;
+            }
             }catch(Exception e){
                 System.out.println(e);}
        
@@ -867,6 +1035,71 @@ public class Index extends javax.swing.JFrame {
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
         //Check in
 
+        
+        
+        try{
+            
+            
+            
+            
+            String type =(String)jComboBox1.getSelectedItem();
+            String color = jTextField1.getText();
+            int space= Integer.parseInt(jTextField2.getText());
+            String plate = jTextField3.getText();
+            String hour = jTextField5.getText();
+            String entry = jLabel17.getText();
+            
+            Connection con = null;
+	con = DBconnector.connect();
+        String aq = "SELECT `Parked` FROM spaces WHERE ID='"+space+"'"; 
+	PreparedStatement apst = con.prepareStatement(aq);
+	ResultSet ars =apst.executeQuery(aq);	            
+	ars.next();
+        int a = ars.getInt("Parked");
+        if(a==1){
+            throw new NullPointerException("");
+        }
+            
+            
+             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+             LocalDateTime now = LocalDateTime.now(); 
+             String date = dtf.format(now);
+             
+            if(color=="" && plate =="" && hour=="" && entry==""){
+                 throw new IOException();
+             }
+             
+            if(space<1 || space>9){
+                throw new NumberFormatException();
+            }
+     
+        
+	String q = "UPDATE `spaces` SET `ID`='"+space+"',`Parked`='"+1+"',`Type`='"+type+"',`Color`='"+color+"',`Space`='"+space+"',`Plate`='"+plate+"',`Hours`='"+hour+"',`Time`='"+entry+"' WHERE ID="+space+";"; 
+	PreparedStatement pst = con.prepareStatement(q);
+	pst.executeUpdate(q);
+        
+        String p = "INSERT INTO `registry`(`Type`, `Color`, `Plate`, `Hours`, `Date`, `Space`) VALUES ('"+type+"','"+color+"','"+plate+"','"+hour+"','"+date+"','"+space+"');"; 
+	PreparedStatement pstt = con.prepareStatement(p);
+	pstt.execute(p);
+        
+        determineSpaces();
+        spaces();
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Please insert a valid number in parking space selected!");
+        }
+        catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Parking spot is occupied! Check out then try again.");
+        }
+        catch(IOException e){
+            JOptionPane.showMessageDialog(null, "Please fill the fields before continuing!");
+        }
+        catch(Exception e){System.out.println("Error: "+e);}
+
+             
+             
+             
+        
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
@@ -884,7 +1117,8 @@ public class Index extends javax.swing.JFrame {
         PreparedStatement pst = con.prepareStatement(q);
         pst.execute(q);
 
-	//ResultSet rs =pst.executeQuery(q);
+	determineSpaces();
+        spaces();
         }
         
         catch(Exception e){
@@ -1034,11 +1268,11 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1046,6 +1280,7 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelP;
     private javax.swing.JPanel jPanel1;
     private static javax.swing.JPanel jPanel10;
     private static javax.swing.JPanel jPanel11;

@@ -10,7 +10,7 @@ public class Sedan extends Vehicle {
         
     }
     @Override
-    public int checkIn(int hours){
+    public int Payment(int hours){
         int payment;
         payment = getHourlyRate() * hours;
         return payment;

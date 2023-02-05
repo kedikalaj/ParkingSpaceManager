@@ -15,7 +15,7 @@ public abstract class Vehicle {
         this.LicensePlate=LicensePlate;
     }
     
-    public abstract int checkIn(int hours);
+    public abstract int Payment(int hours);
     
     
 }
